@@ -1,16 +1,9 @@
-# Three.js Journey
+# 14 Lights
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+## Key Learning Points 
+- `ambientLight`
+- `directionalLight`
 
-``` bash
-# Install dependencies (only the first time)
-npm install
 
-# Run the local server at localhost:8080
-npm run dev
 
-# Build for production in the dist/ directory
-npm run build
-```
+## Resources 
