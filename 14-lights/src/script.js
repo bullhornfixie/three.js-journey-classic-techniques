@@ -24,11 +24,22 @@ const ambientLight = new THREE.AmbientLight()
 ambientLight.color = new THREE.Color(0xffffff)
 ambientLight.intensity = 0.5
 scene.add(ambientLight)
+// all around mesh 
 
 const directionalLight = new THREE.DirectionalLight()
 directionalLight.color = new THREE.Color(0x00fffc)
 directionalLight.intensity = 0.3
+directionalLight.position.set(1, 1, 1) // x, y, z
 scene.add(directionalLight)
+// target area of mesh 
+
+const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 1)
+scene.add(hemisphereLight)
+
+const pointLight = new THREE.PointLight(0xff9000, 0.5)
+scene.add(pointLight)
+
+// similar to ambient but different color from sky
 
 gui.add(ambientLight, 'intensity').min(0).max(1).step(0.01)
 

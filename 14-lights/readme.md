@@ -3,7 +3,7 @@
 ## Key Learning Points 
 - `ambientLight`
 - `directionalLight`
-
-
+- `hemisphereLight`
+- `pointLight`
 
 ## Resources 
