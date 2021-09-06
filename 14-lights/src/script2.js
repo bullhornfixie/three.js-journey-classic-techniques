@@ -15,59 +15,17 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-// Lights (shorthand)
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-// scene.add(ambientLight)
-
-// Lights (longhand)
-const ambientLight = new THREE.AmbientLight()
-ambientLight.color = new THREE.Color(0xffffff)
-ambientLight.intensity = 0.5
-// scene.add(ambientLight)
-// all around mesh 
-
-const directionalLight = new THREE.DirectionalLight()
-directionalLight.color = new THREE.Color(0x00fffc)
-directionalLight.intensity = 0.3
-directionalLight.position.set(1, 1, 1) // x, y, z
-scene.add(directionalLight)
-// target area of mesh 
-
-const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 1)
-scene.add(hemisphereLight)
-// color from top and color from bottom
-
-const pointLight = new THREE.PointLight(0xff9000, 0.5, 10, 2) // color, intensity, distance, decay (how fast light decays)
-pointLight.position.set(1, -0.5, 1) 
-scene.add(pointLight)
-// similar to ambient but different color from sky
-
-const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 3, 5, 1)
+// Lights 
+const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 3, 5, 1) // color, intensity, distance, decay 
 rectAreaLight.position.set(-1.5, 0, 1.5)
-rectAreaLight.lookAt(new THREE.Vector3())
 scene.add(rectAreaLight)
 // rectangle area light, like on a photoshoot
+// only works with MeshStandard Material and MeshPhysicalMaterial 
 
-const spotLight = new THREE.SpotLight(0x78ff00, 0.5, 10, Math.PI * 0.1, 0.25, 0.1) // Math.PI is for angle
-spotLight.position.set(0, 2, 3)
-scene.add(spotLight)
-// like a flashlight 
+gui.add(rectAreaLight, 'intensity').min(0).max(5).step(0.01)
 
-spotLight.target.position.x = 1.00
-// move spotlight along x axes
-scene.add(spotLight.target)
+// Objects
 
-gui.add(ambientLight, 'intensity').min(0).max(1).step(0.01)
-
-// const pointLight = new THREE.PointLight(0xffffff, 0.5)
-// pointLight.position.x = 2
-// pointLight.position.y = 3
-// pointLight.position.z = 4
-// scene.add(pointLight)
-
-/**
- * Objects
- */
 // Material
 const material = new THREE.MeshStandardMaterial()
 material.roughness = 0.4
