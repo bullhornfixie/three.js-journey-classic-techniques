@@ -57,6 +57,17 @@ spotLight.target.position.x = 1.00
 // move spotlight along x axes
 scene.add(spotLight.target)
 
+// Helpers 
+// const hemisphereLightHelper = new THREE.HemisphereLightHelper(hemisphereLight, 0.2)
+// scene.add(hemisphereLightHelper)
+// // creates a prism to show light
+
+// const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight)
+// scene.add(directionalLightHelper)
+
+const pointLightHelper = new THREE.PointLightHelper(pointLight, 0.2)
+scene.add(pointLightHelper)
+
 gui.add(ambientLight, 'intensity').min(0).max(1).step(0.01)
 
 // const pointLight = new THREE.PointLight(0xffffff, 0.5)
