@@ -65,6 +65,8 @@ scene.add(spotLight.target)
 // const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight)
 // scene.add(directionalLightHelper)
 
+// need to import a rectAreaLight helper 
+
 const pointLightHelper = new THREE.PointLightHelper(pointLight, 0.2)
 scene.add(pointLightHelper)
 
