@@ -36,9 +36,24 @@ directionalLight.castShadow = true
 
 directionalLight.shadow.mapSize.width = 1024 
 directionalLight.shadow.mapSize.height = 1024 
-console.log(directionalLight.shadow.camera)
+
+directionalLight.shadow.camera.top = 2
+directionalLight.shadow.camera.right = 2
+directionalLight.shadow.camera.bottom = -2
+directionalLight.shadow.camera.left = - 2
+// improves edges of shadow 
+
+directionalLight.shadow.camera.near = 1
+directionalLight.shadow.camera.far = 6
+
+directionalLight.shadow.radius = 10 
+// changes blur crispness on shadow 
+
+
 
 const directionalLightCameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
+directionalLightCameraHelper.visible = false 
+// hides camera helper 
 scene.add(directionalLightCameraHelper)
 
 /**
@@ -117,6 +132,7 @@ renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 renderer.shadowMap.enabled = true 
+renderer.shadowMap.type = THREE.PCFSoftShadowMap
 
 /**
  * Animate
