@@ -8,9 +8,10 @@
 - ShadowMap Algorithm 
 
 ### Built In Shadow Maps 
-- THREE.BasicShadowMap 
-- THREE.PCFShadowMap 
-- THREE.PCFSoftShadowMap 
-- THREE.VSMShadowMap 
+- `THREE.BasicShadowMap` 
+- `THREE.PCFShadowMap` 
+- `THREE.PCFSoftShadowMap` 
+- `THREE.VSMShadowMap`
+- Add to renderer  
 
 ## Resources 

@@ -49,12 +49,20 @@ directionalLight.shadow.camera.far = 6
 directionalLight.shadow.radius = 10 
 // changes blur crispness on shadow 
 
-
-
 const directionalLightCameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
 directionalLightCameraHelper.visible = false 
 // hides camera helper 
 scene.add(directionalLightCameraHelper)
+
+// Spot Light 
+const spotLight = new THREE.SpotLight(0xffffff, 0.4, 10, Math.PI * 0.3)
+spotLight.castShadow = true 
+spotLight.position.set(0, 2, 2)
+scene.add(spotLight)
+scene.add(spotLight.target)
+
+const spotLightCameraHelper = new THREE.CameraHelper(spotLight.shadow.camera)
+scene.add(spotLightCameraHelper)
 
 /**
  * Materials
