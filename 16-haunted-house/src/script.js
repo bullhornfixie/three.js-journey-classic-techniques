@@ -20,9 +20,20 @@ const scene = new THREE.Scene()
  */
 const textureLoader = new THREE.TextureLoader()
 
-/**
- * House
- */
+// Group
+const house = new THREE.Group()
+scene.add(house)
+
+// Walls 
+const walls = new THREE.Mesh(
+  new THREE.BoxGeometry(4, 2.5, 4), // width, height, length
+  new THREE.MeshStandardMaterial({ color: '#ac8e82' })
+)
+walls.position.y = 1.25
+house.add(walls)
+
+// Roof
+
 
 // Floor
 const floor = new THREE.Mesh(
