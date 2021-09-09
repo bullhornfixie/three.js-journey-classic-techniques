@@ -38,7 +38,7 @@ const roof = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ color: '#b35f45' })
 )
 roof.position.y = 2.5 + 0.5
-roof.rotation.y = Math.PI / 4
+roof.rotation.y = Math.PI / 4 // PI is approx 3.14 and ratio of any circle 
 house.add(roof)
 
 // Door 
@@ -75,9 +75,22 @@ house.add(bush1, bush2, bush3, bush4)
 const graves = new THREE.Group()
 scene.add(graves)
 
-const graveGeometry = new THREE.BoxGeometry(0.6, 0.2, 0.2)
+const graveGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.2) // 0.8 is height of grave
 const graveMaterial = new THREE.MeshStandardMaterial({ color: '#b2b6b1' })
 
+for(let i=0; i < 50; i++)
+{
+  const angle = Math.random() * Math.PI * 2
+  const radius = 3 + Math.random() * 6 // change radius by changing multiple
+  const x = Math.sin(angle) * radius 
+  const z = Math.cos(angle) * radius 
+
+  const grave = new THREE.Mesh(graveGeometry, graveMaterial)
+  grave.position.set(x, 0.3, z)  
+  grave.rotation.y = (Math.random() - 0.5) * 0.4 // makes graves turn on spot 
+  grave.rotation.z = (Math.random() - 0.5) * 0.4 // makes graves lean towards camera
+  graves.add(grave)
+}
 
 
 // Floor
