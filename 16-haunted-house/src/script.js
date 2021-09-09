@@ -33,6 +33,9 @@ walls.position.y = 1.25
 house.add(walls)
 
 // Roof
+const roof = new THREE.Mesh(
+    
+)
 
 
 // Floor
