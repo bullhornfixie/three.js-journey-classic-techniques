@@ -15,10 +15,25 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
+// Fog 
+const fog = new THREE.Fog('#262837', 2, 15) // color, how far from camera fog starts, where fog stops
+scene.fog = fog
+// to opaque edges of scene, add same color to renderer section 
+
+
 /**
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
+
+const doorColorTexture = textureLoader.load('/textures/door/color.jpg')
+const doorAlphaTexture = textureLoader.load('/textures/door/alpha.jpg')
+const doorAmbientOcclusionTexture = textureLoader.load('/textures/door/ambientOcclusion.jpg')
+const doorHeightTexture = textureLoader.load('/textures/door/height.jpg')
+const doorNormalTexture = textureLoader.load('/textures/door/normal.jpg')
+const doorMetalnessTexture = textureLoader.load('/textures/door/metalness.jpg')
+const doorRoughnessTexture = textureLoader.load('/textures/door/roughness.jpg')
+
 
 // Group
 const house = new THREE.Group()
@@ -47,6 +62,7 @@ const door = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ color: '#aa7b7b' })
 )
 door.position.z = 2 + 0.01 // move this out by 0.01 or you get Z fighting 
+door.position.y = 1
 house.add(door)
 
 // Bushes 
@@ -169,6 +185,7 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.setClearColor('#262837')
 
 /**
  * Animate
