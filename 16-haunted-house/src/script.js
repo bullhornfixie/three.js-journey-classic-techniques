@@ -60,8 +60,15 @@ house.add(roof)
 const door = new THREE.Mesh(
   new THREE.PlaneGeometry(2, 2),
   new THREE.MeshStandardMaterial({ 
-    map: doorColorTexture
+    map: doorColorTexture,
+    transparent: true, 
+    alphaMap: doorAlphaTexture,
+    aoMap: doorAmbientOcclusionTexture
   })
+)
+door.geometry.setAttribute(
+  'uv2',
+  new THREE.Float32BufferAttribute(door.geometry.attributes.uv.array, 2)
 )
 door.position.z = 2 + 0.01 // move this out by 0.01 or you get Z fighting 
 door.position.y = 1
