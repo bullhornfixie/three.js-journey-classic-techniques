@@ -6,6 +6,8 @@
 - Opaque edges of scene by using fog color in renderer 
 - Adding brick texture to house 
 - Adding grass 
+- Using a for loop to create a circle of 3D objects
+- Creating a rotating light
 
 ### Point Light 
 - [Three.js class info](https://threejs.org/docs/#api/en/lights/PointLight)
