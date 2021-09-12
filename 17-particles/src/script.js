@@ -19,6 +19,7 @@ const scene = new THREE.Scene()
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
+const particleTexture = textureLoader.load('/textures/particles/2.png')
 
 // Particles 
 
@@ -44,6 +45,7 @@ const particlesMaterial = new THREE.PointsMaterial({
   size: 0.1, // size of particle in  pixels
   color: '#ff88cc',
   sizeAttenuation: true, // particle is far from camera will be small and vice versa
+  map: particleTexture
 })
 
 // Points 
