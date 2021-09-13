@@ -26,7 +26,7 @@ const particleTexture = textureLoader.load('/textures/particles/2.png')
 // Geometry 
 // const particlesGeometry = new THREE.SphereGeometry(1, 32, 32)
 const particlesGeometry = new THREE.BufferGeometry()
-const count = 5000 // 5000 particles
+const count = 20000 // 5000 particles
 
 const positions = new Float32Array(count * 3)
 
@@ -45,14 +45,18 @@ const particlesMaterial = new THREE.PointsMaterial({
   size: 0.1, // size of particle in  pixels
   color: '#ff88cc',
   sizeAttenuation: true, // particle is far from camera will be small and vice versa
-  map: particleTexture
+  transparent: true,
+  alphaMap: particleTexture,
+  // alphaTest: 0.001,
+  // depthTest: false
+  depthWrite: false,
+  blending: THREE.AdditiveBlending
 })
 
 // Points 
 // instead of Mesh we use points and pass geometry and material 
 const particles = new THREE.Points(particlesGeometry, particlesMaterial)
 scene.add(particles)
-
 
 /**
  * Sizes
