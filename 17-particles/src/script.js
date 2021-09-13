@@ -52,7 +52,7 @@ particlesGeometry.setAttribute(
 // Material 
 const particlesMaterial = new THREE.PointsMaterial({
   size: 0.1, // size of particle in  pixels
-  color: '#ff88cc',
+  //  color: '#ff88cc',
   sizeAttenuation: true, // particle is far from camera will be small and vice versa
   transparent: true,
   alphaMap: particleTexture,
@@ -120,6 +120,9 @@ const clock = new THREE.Clock()
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
+
+    // Uppdate particles(3D object)
+    particles.rotation.y = elapsedTime / 2
 
     // Update controls
     controls.update()

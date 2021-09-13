@@ -2,8 +2,10 @@
 
 ## Key Learning Points 
 - Custom geometry using `BufferGeometry()`
-- `alphaTest` value between 0 and 1, enables WebGL to know when not to render the pixel - default the value is 0. 
+- `alphaTest` value between 0 and 1, enables WebGL to know when not to render the pixel 
 - `additiveBlending` color of two objects are added to each other - e.g. becomes brighter 
+- Trigonometry branch of maths that studies relationships between side lengths and angles of triangles
+- `ElpasedTime / 2` reduces speed of animation by half
 
 ### Creating Random Colors 
 - A color is composed of RGB
@@ -12,6 +14,7 @@
 - G has a range of 0-1
 - B has a range of 0-1
 - When each element has a different range, it creates a different color
+- Turn off base color when using random colors
 
 ## Resources 
 [Particle Pack](https://www.kenney.nl/assets/particle-pack)
