@@ -7,6 +7,8 @@
 - Trigonometry branch of maths that studies relationships between side lengths and angles of triangles
 - `ElpasedTime / 2` reduces speed of animation by half
 - Each Vertex has 3 values - x, y, z 
+- Lesson shows us how to animate particles using a basic technique 
+- Better approach is to use shaders which will be shown in later lesson 
 
 ### Creating Random Colors 
 - A color is composed of RGB
