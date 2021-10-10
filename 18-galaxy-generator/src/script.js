@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 
 // Debug panel 
-const gui = new dat.GUI()
+const gui = new dat.GUI({ width: 360 })
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -16,6 +16,7 @@ const scene = new THREE.Scene()
 const parameters = {}
 parameters.count = 1000
 parameters.size = 0.02
+
 // create 1000 particles 
 
 /** parameters is an object. This is a standalone entity with properties and type. Compare it with a cup, 
@@ -37,7 +38,6 @@ const generateGalaxy = () =>
     positions[i3 + 0] = (Math.random() - 0.5) * 3 // x
     positions[i3 + 1] = (Math.random() - 0.5) * 3 // y
     positions[i3 + 2] = (Math.random() - 0.5) * 3 // z
-
   }
  
   geometry.setAttribute(
@@ -60,6 +60,13 @@ const generateGalaxy = () =>
 }
 
 generateGalaxy()
+
+
+gui.add(parameters, 'count').min(100).max(1000000).step(100).onFinishChange(generateGalaxy)
+gui.add(parameters, 'size').min(0.001).max(0.1).step(0.001).onFinishChange(generateGalaxy)
+// onFinishChange is a bit like useState it will re-render if the value of parameters changes 
+// on changing the variables a new galaxy will be created but the old ones must be removed synchronisly 
+
 
 /**
  * Sizes
