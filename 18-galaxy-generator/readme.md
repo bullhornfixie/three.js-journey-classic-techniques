@@ -1,16 +1,9 @@
-# Three.js Journey
+# 18 Galaxy Generator 
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+## Key Learning Points 
+- `.onFinishChange()`
+- use const when the variable does not change 
+- use let when the varibale is going to change 
 
-``` bash
-# Install dependencies (only the first time)
-npm install
-
-# Run the local server at localhost:8080
-npm run dev
-
-# Build for production in the dist/ directory
-npm run build
-```
+### Let vs Const 
+Turns out, const is almost exactly the same as let . However, the only difference is that once you've assigned a value to a variable using const , you can't reassign it to a new value. ... The take away above is that variables declared with let can be re-assigned, but variables declared with const can't be.
