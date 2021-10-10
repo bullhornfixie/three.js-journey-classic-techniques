@@ -49,11 +49,12 @@ const generateGalaxy = () =>
   {
     const i3 = i * 3
     const radius = Math.random() * parameters.radius
+    const spinAngle = radius * parameters.spin
     const branchAngle = (i % parameters.branches) / parameters.branches * Math.PI * 2
 
-    positions[i3 + 0] = Math.cos(branchAngle) * radius // x
+    positions[i3 + 0] = Math.cos(branchAngle + spinAngle) * radius // x
     positions[i3 + 1] = 0
-    positions[i3 + 2] = Math.sin(branchAngle) * radius // z 
+    positions[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius // z 
   }
  
   geometry.setAttribute(
