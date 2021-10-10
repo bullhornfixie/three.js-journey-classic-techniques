@@ -17,6 +17,10 @@ const parameters = {}
 parameters.count = 1000
 parameters.size = 0.02
 
+let geometry = null 
+let material = null 
+let points = null 
+
 // create 1000 particles 
 
 /** parameters is an object. This is a standalone entity with properties and type. Compare it with a cup, 
@@ -26,7 +30,15 @@ parameters.size = 0.02
 
 const generateGalaxy = () =>
 {
-  const geometry = new THREE.BufferGeometry()
+  if(points !== null)
+  {
+    geometry.dispose()
+    material.dispose()
+    scene.remove(points)
+  }
+  
+    
+  geometry = new THREE.BufferGeometry()
 
   const positions = new Float32Array(parameters.count * 3)
   // * 3 vertiicies on each position 
@@ -46,7 +58,7 @@ const generateGalaxy = () =>
   )
 
   // Material 
-  const material = new THREE.PointsMaterial({
+  material = new THREE.PointsMaterial({
     size: parameters.size,
     sizeAttenuation: true,
     depthWrite: false,
@@ -54,7 +66,7 @@ const generateGalaxy = () =>
   })
 
   // Points
-  const points = new THREE.Points(geometry, material)
+  points = new THREE.Points(geometry, material)
   scene.add(points)
 
 }
