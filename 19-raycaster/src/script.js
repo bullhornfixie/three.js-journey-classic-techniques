@@ -37,16 +37,25 @@ const object3 = new THREE.Mesh(
 object3.position.x = 2
 
 // Grid Helper
+// Optional - add this to scene
 const gridHelper = new THREE.GridHelper(9, 9)
 
-scene.add(object1, object2, object3, gridHelper)
+scene.add(object1, object2, object3)
 
 // Raycaster
-const rayCaster = new THREE.Raycaster()
+const raycaster = new THREE.Raycaster()
 
 const rayOrigin = new THREE.Vector3(-3, 0, 0) // x, y, z
-const rayDirection = new THREE.Vector3(1, 0, 0)
-// rayCaster.set()
+const rayDirection = new THREE.Vector3(10, 0, 0)
+rayDirection.normalize()
+
+raycaster.set(rayOrigin, rayDirection) // casts the ray 
+
+const intersect = raycaster.intersectObject(object2)
+console.log(intersect)
+
+const intersects = raycaster.intersectObjects([object1, object2, object3])
+console.log(intersects)
 
 /**
  * Sizes
