@@ -125,7 +125,17 @@ const tick = () =>
     const objectsToTest = [object1, object2, object3]
     const intersects = raycaster.intersectObjects(objectsToTest)
 
-    console.log(intersects.length)
+    // Imagine a horizontal line in middle of scene and spheres turn blue they intersect with line/ray
+
+    for(const object of objectsToTest)
+    {
+        object.material.color.set('#ff0000') // red
+    }
+
+    for(const intersect of intersects)
+    {
+      intersect.object.material.color.set('#0000ff') // blue
+    }
 
     // Update controls
     controls.update()

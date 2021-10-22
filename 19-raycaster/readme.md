@@ -19,3 +19,6 @@ Each item contains useful information
 - `object` - what object is concerned by the collision 
 - `point` - a Vector3 of the exact position of the collision 
 - `uv` - the UV coordinates in that geometry 
+
+## Uses of a Ray 
+- Possibly a game where the player is shooting a laser and if objects intersect with laser, there is an event. 
