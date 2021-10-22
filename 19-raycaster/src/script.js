@@ -45,17 +45,17 @@ scene.add(object1, object2, object3)
 // Raycaster
 const raycaster = new THREE.Raycaster()
 
-const rayOrigin = new THREE.Vector3(-3, 0, 0) // x, y, z
-const rayDirection = new THREE.Vector3(10, 0, 0)
-rayDirection.normalize()
+// const rayOrigin = new THREE.Vector3(-3, 0, 0) // x, y, z
+// const rayDirection = new THREE.Vector3(10, 0, 0)
+// rayDirection.normalize()
 
-raycaster.set(rayOrigin, rayDirection) // casts the ray 
+// raycaster.set(rayOrigin, rayDirection) // casts the ray 
 
-const intersect = raycaster.intersectObject(object2)
-console.log(intersect)
+// const intersect = raycaster.intersectObject(object2)
+// console.log(intersect)
 
-const intersects = raycaster.intersectObjects([object1, object2, object3])
-console.log(intersects)
+// const intersects = raycaster.intersectObjects([object1, object2, object3])
+// console.log(intersects)
 
 /**
  * Sizes
@@ -109,6 +109,23 @@ const clock = new THREE.Clock()
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
+
+    // Animate objects 
+    object1.position.y = Math.sin(elapsedTime * 0.3) * 1.5  // * 1.6 means a bigger range so ball will bouce heigher 
+    object2.position.y = Math.sin(elapsedTime * 0.8) * 1.5  // * 1.6 means a bigger range so ball will bouce heigher 
+    object3.position.y = Math.sin(elapsedTime * 1.4) * 1.5  // * 1.6 means a bigger range so ball will bouce heigher 
+
+    // Cast a ray 
+    const rayOrigin = new THREE.Vector3(-3, 0, 0)
+    const rayDirection = new THREE.Vector3(1, 0, 0)
+    rayDirection.normalize()
+
+    raycaster.set(rayOrigin, rayDirection)
+
+    const objectsToTest = [object1, object2, object3]
+    const intersects = raycaster.intersectObjects(objectsToTest)
+
+    console.log(intersects.length)
 
     // Update controls
     controls.update()
