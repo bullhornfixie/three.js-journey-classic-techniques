@@ -1,11 +1,14 @@
 # Three.js Journey
 
 ## Key Learning Points 
-- How to cast a Ray in a scene
-- A ray is a line with an endpoint and goes indefinitely in one direction 
-- Three has a Raycast Class `new THREE.Raycaster()`
-- It requires an `origin` and `direction` which can be achieved by using `Vector3 class`
-- Three has a Gridhelper Class `new THREE.GridHelper(9, 9)`
+
+### What is Raycasting?
+Raycasting means throwing a ray from the mouse position on the screen to 
+the scene, this determines what object you want to click on if you have implemented it. 
+
+### What is the Raycaster class in Three.js?
+`new THREE.Raycaster()`
+
 
 ## Intersect Objects
 - In geometry intersect is where two or more things pass or lie across eachother 

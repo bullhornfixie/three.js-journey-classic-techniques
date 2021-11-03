@@ -80,6 +80,24 @@ window.addEventListener('resize', () =>
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
+// Mouse 
+const mouse = new THREE.Vector2()
+
+// Check for mouse moving 
+window.addEventListener('mousemove', (event) => {
+  // console.log('mouse move')
+  // console.log(event)
+
+  // Mouse co-ordinates 
+  mouse.x = event.clientX
+
+  // Mouse co-ordinates scale -1 to 1 
+  mouse.x = (event.clientX / sizes.width) * 2 - 1
+  mouse.y = - (event.clientY / sizes.height) * 2 + 1
+  console.log(mouse.y)
+  console.log(mouse.x)
+})
+
 /**
  * Camera
  */
