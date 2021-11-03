@@ -98,6 +98,10 @@ window.addEventListener('mousemove', (event) => {
 //   console.log(mouse.x)
 })
 
+window.addEventListener('click', () => {
+  console.log('mouse click')
+})
+
 
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
@@ -121,6 +125,8 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  * Animate
  */
 const clock = new THREE.Clock()
+
+let currentIntersect = null 
 
 const tick = () =>
 {
@@ -154,6 +160,14 @@ const tick = () =>
     for(const intersect of intersects)
     {
       intersect.object.material.color.set('#0000ff') // blue
+    }
+
+    if(intersects.length){
+      // if mouse intersects with sphere 
+      console.log('something being hovered')
+    }
+    else{
+      console.log('nothing being hovered')
     }
 
     // Update controls
